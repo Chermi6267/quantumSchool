@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Role {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  users User[] @relation("UserRole")
+}
+
+model User {
+  id           Int          @id @default(autoincrement())
+  email        String       @unique
+  hashPassword String?
+  loggedWith   String
+  roleId       Int?
+  role         Role?        @relation("UserRole", fields: [roleId], references: [id])
+  profile      Profile?
+  token        token?
+  courseUsers  CourseUser[]
+}
+
+model Course {
+  id          Int          @id @default(autoincrement())
+  name        String
+  description String
+  price       String
+  catId       String
+  icon        String
+  courseUsers CourseUser[]
+}
+
+model CourseUser {
+  userId   Int
+  courseId Int
+  user     User   @relation(fields: [userId], references: [id])
+  course   Course @relation(fields: [courseId], references: [id])
+
+  @@id([userId, courseId])
+}
+
+model token {
+  id     Int    @id @default(autoincrement())
+  token  String @unique @db.Char(255)
+  userId Int    @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  name   String?
+  avatar String?
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int     @unique
+}

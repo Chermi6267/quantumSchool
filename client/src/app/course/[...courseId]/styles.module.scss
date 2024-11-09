@@ -1,0 +1,62 @@
+@import "../../../style/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Pacifico&display=swap");
+
+@keyframes opacity1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.course {
+  margin: 0 auto;
+
+  &__img {
+    width: 7vw;
+    height: 7vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0 auto;
+    margin-top: 5vh;
+    animation: opacity1 500ms ease-in-out;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: $peach_color;
+    text-align: center;
+    animation-delay: 500ms;
+    animation: opacity1 200ms ease-in-out;
+  }
+
+  p {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    animation-delay: 1000ms;
+    animation: opacity1 500ms ease-in-out;
+  }
+
+  &__reg_button_cont {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5vh;
+  }
+
+  &__reg_button {
+    width: max-content;
+    padding: 2vh 4vw;
+    font-size: 1.2rem;
+    font-family: Comfortaa, sans-serif;
+    background-color: $text-color;
+    border: 3px solid $peach_color;
+    border-radius: 15px;
+    color: $peach_color;
+    font-weight: 800;
+  }
+}

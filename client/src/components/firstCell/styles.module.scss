@@ -1,0 +1,107 @@
+@import "../../style/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+
+.first_cell {
+  height: 80vh;
+  width: 100vw;
+  margin-top: 5vh;
+
+  &__title {
+    font-size: 5rem;
+    color: $peach_color;
+    margin: 0;
+    padding: 0;
+    padding-top: 10vh;
+    width: min-content;
+    padding-left: 5vw;
+    position: relative;
+  }
+
+  &__title::before {
+    content: "";
+    position: absolute;
+    width: 28vw;
+    height: 30vw;
+    background-color: antiquewhite;
+    right: -55vw;
+    transform: rotate(10deg);
+    border-radius: 25px;
+    background-color: $peach_color;
+    background-image: url("/firstCell.png");
+    background-size: cover;
+    background-position: 75%;
+  }
+
+  &__paragraph {
+    width: 100vw;
+    padding: 1vh;
+    margin-top: 10vh;
+    padding-left: 8vw;
+    border-bottom: 2px dotted $text_color;
+    border-top: 2px dotted $text_color;
+    color: $peach_color;
+  }
+
+  &__paragraph:nth-child(2) {
+    margin-top: 5vh;
+    width: 80vw;
+    padding-left: 20vw;
+    color: $text_color;
+  }
+
+  &__robot_cont {
+    width: 350px;
+    height: 100px;
+    scale: 1;
+    margin-left: 5vw;
+    display: flex;
+  }
+}
+
+.robot_cont {
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: max-content;
+    background-color: transparent;
+    border: none;
+    color: $text_color;
+    font-size: 1.5rem;
+    column-gap: 15px;
+    font-family: Comfortaa, sans-serif;
+    height: min-content;
+    cursor: pointer;
+    border-radius: 0;
+
+    &:hover {
+      background-color: rgb(244, 104, 104);
+      border-radius: 25px;
+    }
+  }
+}
+
+.btn {
+  &__svg {
+    min-width: 35px;
+  }
+}
+
+@media screen and (max-width: 1426px) {
+  .first_cell {
+    &__title::before {
+      right: -38vw;
+    }
+  }
+}
+
+@media screen and (max-width: 1165px) {
+  .first_cell {
+    &__title::before {
+      width: 25vw;
+      height: 30vw;
+      right: -30vw;
+      background-size: cover;
+    }
+  }
+}

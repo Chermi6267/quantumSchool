@@ -1,0 +1,136 @@
+@import "../../style/variables.scss";
+
+@mixin aboutUsPadding($w) {
+  width: calc($w - 2vw);
+  padding: 1vw;
+  border-radius: 20px;
+}
+
+.third_cell {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+
+  p {
+    padding-left: 5vw;
+  }
+
+  &__about_us-paragraph {
+    width: 100%;
+    padding: 1.5vh 0;
+    border-top: 2px solid $text_color;
+    padding-left: 5vw;
+  }
+
+  &__title {
+    padding-left: 5vw;
+    color: $peach_color;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20vw;
+      height: 20vw;
+      background-color: antiquewhite;
+      top: 5vh;
+      right: 20vw;
+      transform: rotate(-20deg);
+      border-radius: 25px;
+      background-color: $peach_color;
+      background-image: url("/thirdCell1.png");
+      background-size: cover;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20vw;
+      height: 20vw;
+      background-color: antiquewhite;
+      top: 20vh;
+      right: 5vw;
+      transform: rotate(25deg);
+      border-radius: 25px;
+      background-color: $peach_color;
+      background-image: url("/thirdCell2.png");
+      background-size: cover;
+    }
+  }
+}
+
+.about_us {
+  &__paragraph {
+    color: $text_color;
+  }
+
+  &__paragraph::before {
+    content: "#";
+    color: $peach_color;
+  }
+}
+
+.course_btn {
+  width: 50vw;
+  border-top: 2px dotted $text_color;
+  border-bottom: 2px dotted $text_color;
+  margin-top: 2vh;
+  margin-left: 5vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &__image {
+    width: 5vw;
+    height: 5vw;
+    background-size: cover;
+    position: relative;
+    margin: 0.5vw 0;
+
+    &::before {
+      content: var(--text);
+      font-size: 1.3rem;
+      position: absolute;
+      right: -230%;
+      bottom: 35%;
+    }
+  }
+
+  &__svg {
+    width: 10%;
+  }
+}
+
+@media screen and (max-width: 1426px) {
+  .course_btn {
+    &__image {
+      &::before {
+        content: var(--text);
+        font-size: 1rem;
+        right: -250%;
+      }
+    }
+  }
+}
+
+.course_menu-open {
+  position: absolute;
+  width: 50vw;
+  height: 70vh;
+  background-color: antiquewhite;
+  left: 25%;
+  transform: translateY(0);
+  transition: all 200ms ease-in;
+}
+
+.course_menu {
+  position: absolute;
+  width: 50vw;
+  height: 40vh;
+  background-color: antiquewhite;
+  left: 25%;
+  transform: translateY(100%);
+  transition: all 200ms ease-in;
+}

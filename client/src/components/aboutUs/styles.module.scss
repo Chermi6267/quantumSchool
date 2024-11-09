@@ -1,0 +1,144 @@
+@import "../../style/variables.scss";
+
+@mixin aboutUsPadding($w) {
+  width: calc($w - 2vw);
+  padding: 1vw;
+  border-radius: 20px;
+}
+
+.second_cell {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+
+  &__about_us-paragraph {
+    width: 100%;
+    padding: 1.5vh 0;
+    border-top: 2px solid $text_color;
+    padding-left: 5vw;
+  }
+
+  &__about_us-data {
+    width: 80vw;
+    height: 50vh;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5vh;
+    align-items: stretch;
+    justify-content: center;
+    gap: 1vw;
+    height: 100%;
+  }
+}
+
+.about_us-data {
+  &__left_panel {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    gap: 1vw;
+    height: max-content;
+  }
+
+  &__right_panel {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff0e5;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 35%;
+    border-radius: 20px;
+    height: calc(500px + 3vw);
+  }
+}
+
+.right_panel {
+  &__data {
+    h1 {
+      margin: 1vh;
+      color: $peach_color;
+      text-align: center;
+    }
+
+    p {
+      color: #898383;
+      text-align: center;
+    }
+  }
+}
+
+.left_panel {
+  &__top {
+    display: flex;
+    column-gap: 1vw;
+    height: 250px;
+  }
+
+  &__content {
+    background-color: $peach_color;
+    @include aboutUsPadding(100%);
+    height: 250px;
+    color: white;
+  }
+}
+
+.content {
+  &__text_logo_cont {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.text_logo_cont {
+  &__text {
+    color: white;
+    width: 60%;
+    font-size: 1.8rem;
+  }
+
+  &__logo {
+    width: 7vw;
+    height: 7vw;
+    background-image: url("/logo2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+.top {
+  &__age_cont {
+    @include aboutUsPadding(55%);
+    background-color: #fff0e5;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+      color: $peach_color;
+    }
+
+    p {
+      color: #898383;
+    }
+  }
+
+  &__children_cont {
+    @include aboutUsPadding(45%);
+    background-image: url("/secondCellChildren.png");
+    background-position: bottom;
+    background-size: cover;
+  }
+}
+
+.about_us {
+  &__paragraph {
+    color: $text_color;
+  }
+
+  &__paragraph::before {
+    content: "#";
+    color: $peach_color;
+  }
+}
